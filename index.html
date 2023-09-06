@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset ="utf-8">
+   <title>Portfolio</title>
+   <link rel = "stylesheet" href="web.css">
+   <script>
+      // JavaScript to add/remove the "disappear" class based on scroll position
+window.addEventListener('scroll', function() {
+    var navbar = document.querySelector('.navbar');
+    var scrollPosition = window.scrollY;
+
+    if (scrollPosition > 500) {
+        setTimeout(function() {
+            navbar.classList.add('disappear');
+        }, 300); // Delay for 300 milliseconds (0.3 seconds)
+    } else {
+        navbar.classList.remove('disappear');
+    }
+});
+   </script>
+</head>
+<body>
+   <h1>Ravi Dhaliwal</h1>
+   <p class="small-text"></p>
+   <p class="body-text"></p>
+</body>
+<div class="flex-container">
+   <div class="flex-item">
+       <li>Programming Lanugages</li>
+       <div class="flex-child">MATLAB, C++, C, C#, Java, & Python</div>
+   </div>
+   <div class="flex-item">
+      <li>Projects</li>
+      <div class="flex-child">Audio to MIDI (C++)</div>
+      <div class ="flex-child">Client/Server Bot Net (C#)</div>
+  </div>
+  <div class="flex-item">
+   <li>Experience</li>
+   <div class="flex-child">Student Researcher @ UC Riverside Bourns School of Engineering</div>
+</div>
+</div>
+<div class = "fixed-image" id="first-image">
+   <a href = "https://github.com/NFKRZZ">
+   <img src="images/github.png" alt="First Image">
+   </a>
+</div>
+<div class="fixed-image" id = "second-image">
+   <a  href="https://www.linkedin.com/in/ravi-dhaliwal-247474226/">
+   <img src="images/linkedin.png" alt ="Second Image">
+   </a> 
+</div>
+<div class="navbar">
+   <ul>
+     <li><a href="#about">About Me</a></li>
+     <li><a href="#education">Education</a></li>
+     <li><a href="#projects">Projects</a></li>
+     <li><a href="PDFs/ResumeRD.pdf" download="Ravi_Dhaliwal_Resume.pdf">Resume</a></li>
+   </ul>
+ </div>
+<div id = "about-section">
+   <div class = "about-text">About Me</div>
+   <div class = "about-text-info">My name is Ravi Dhaliwal and I am a physics student at
+   the University of California, Los Angeles. I spend a lot
+   of my time focused on engineering orriented projects ranging
+   from software projects to launching model rockets.
+   
+   I aim to enter the aerospace industry upon completion of my degree</div>
+   </div>
+<div class = "education-header">
+   <div class = "about-text">Education</div>
+   <div class = "education-text">
+      Physics B.S. at UCLA
+   </div>
+   <div class = "education-text">Expected Graduation Date: June 2025</div>
+</div>
+
+
+
+
+</html>
