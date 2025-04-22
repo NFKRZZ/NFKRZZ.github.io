@@ -203,7 +203,7 @@ h2
 /* Image styles */
 .flex-item2 img {
   max-width: 45%; /* Adjust the width of the image */
-  margin-right: 10%; /* Add spacing between image and text */
+  margin-right: 5%; /* Add spacing between image and text */
 }
 
 .experience-title
