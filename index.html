@@ -1,162 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="utf-8">
-   <title>Portfolio</title>
-   <link rel="stylesheet" href="web.css">
-   <script>
-      window.addEventListener('scroll', function() {
-         var navbar = document.querySelector('.navbar');
-         var scrollPosition = window.scrollY;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ravi Dhaliwal | Portfolio</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0e2954;
+      --accent: #2e8a99;
+      --text-light: #ffffff;
+      --text-muted: #cfd8e3;
+    }
 
-         if (scrollPosition > 500) {
-            setTimeout(function() {
-               navbar.classList.add('disappear');
-            }, 300);
-         } else {
-            navbar.classList.remove('disappear');
-         }
-      });
-   </script>
-   <style>
-      body {
-         font-family: Arial, sans-serif;
-      }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-      meta {
-         name: viewport;
-         content: width=device-width, initial-scale=1;
-      }
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--bg);
+      color: var(--text-light);
+      line-height: 1.6;
+    }
 
-      .about-text, .education-text {
-         font-size: 2em;
-      }
+    /* ——— Header / Navbar ——— */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(14, 41, 84, 0.9);
+      backdrop-filter: blur(6px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
 
-      @media only screen and (max-width: 600px) {
-         .about-text, .education-text {
-            font-size: 1.5em;
-         }
+    header h1 {
+      font-size: 1.75rem;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* ——— Hero ——— */
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 2rem;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .hero p {
+      max-width: 600px;
+      font-size: 1.125rem;
+    }
+
+    /* ——— Sections ——— */
+    section {
+      padding: 4rem 2rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--accent);
+    }
+
+    /* ——— Cards Grid ——— */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #112d5d;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    /* ——— Footer ——— */
+    footer {
+      background: #091a37;
+      text-align: center;
+      padding: 1rem;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    /* ——— Responsive ——— */
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 2.25rem;
       }
-   </style>
+    }
+  </style>
 </head>
 <body>
-   <h1>Ravi Dhaliwal</h1>
-   <div class="flex-container">
-      <div class="flex-item">
-         <li>Programming Languages</li>
-         <div class="flex-child">MATLAB, C++, C, C#, Java, & Python</div>
-      </div>
-      <div class="flex-item">
-         <li>Projects</li>
-         <div class="flex-child">Audio to MIDI (C++)</div>
-         <div class="flex-child">Client/Server Bot Net (C#)</div>
-      </div>
-      <div class="flex-item">
-         <li>Experience</li>
-         <div class="flex-child">Student Researcher @ UC Riverside Bourns School of Engineering</div>
-         <div class="flex-child">Principal Investigator @ NASA LSPACE Academy</div>
-      </div>
-   </div>
-   <div class="fixed-image" id="first-image">
-      <a href="https://github.com/NFKRZZ">
-         <img src="images/github.png" alt="First Image">
-      </a>
-   </div>
-   <div class="fixed-image" id="second-image">
-      <a href="https://www.linkedin.com/in/ravi-dhaliwal-247474226/">
-         <img src="images/linkedin.png" alt="Second Image">
-      </a>
-   </div>
-   <div class="navbar">
+  <!-- ===== Header / Navbar ===== -->
+  <header>
+    <h1>Ravi Dhaliwal</h1>
+    <nav>
       <ul>
-         <li><a href="#about">About Me</a></li>
-         <li><a href="#education">Education</a></li>
-         <li><a href="#projects">Projects</a></li>
-         <li><a href="PDFs/ResumeRD.pdf" download="Ravi_Dhaliwal_Resume.pdf">Resume</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="PDFs/ResumeRD.pdf" download>Resume</a></li>
       </ul>
-   </div>
-   
-   <div class = "about-section">
-      <div class = "about-text">About Me</div>
-      <p class = "about-text-info">
-         My name is Ravi Dhaliwal and I am a physics student at
-            the University of California, Los Angeles. I spend a lot
-            of my time focused on engineering oriented projects ranging
-            from software projects to launching model rockets.
+    </nav>
+  </header>
 
-            I aim to enter an industry where I can fully utilize my skillset when I graduate.
-      </p>
-   </div>
+  <!-- ===== Hero Section ===== -->
+  <section class="hero" id="about">
+    <h2>Physics Student </h2>
+    <p>
+      I'm a physics student at UCLA with a passion for engineering‑oriented projects —
+      from software that turns audio into MIDI to 3D‑printed rockets. I’m driven by
+      curiosity and the thrill of building things that work.
+    </p>
+  </section>
 
-   <div class = "about-section">
-      <div class = "about-text">Education</div>
-      <div class = "about-text-info">Physics B.S. & CS Minor at UCLA</div>
-      <div class = "about-text-info">Expected Graduation Date: June 2025</div>
-   </div>
-   <div class = "experience-title">Experience</div>
-   <div class="flex-container2">
-      <div class="flex-item2">
-         <div class="text-container">
-           <h3>NASA L'SPACE NPWEE ACADEMY</h3>
-           <p>For the fall of 2023, I was the principal investigator for my teams proposal of implementing super capacitors into satellite propulsions systems to better collision avoidance. </p>
-         </div>
-         <img src="images/nasa.jpg" alt="">
-       </div>
-       <div class="flex-item2">
-         <div class="text-container">
-           <h3>Student Researcher, UCR</h3>
-           <p>From Summer 2022 to Winter 2023, I was involved in a research lab under Professor Venkatadriagaram focused on creating a low energy water filtration device. Specifically I worked on creating a venturi tube capable of producing a pressure drop of 30,000 pascals, enough to vaporize water. </p>
-         </div>
-         <img src="images/Venturi.png" alt="Venturi Tube">
-       </div>
-      <!-- Add more flex items as needed -->
-    </div>
-    
-    
-    <div class = "experience-title">Engineering Projects</div>
-    <div class = "flex-container2">
-      <div class = "flex-item2">
-         <div class = "text-container">
-            <h3>Rear Wing Design </h3>
-            <p>I designed a rear wing using the NACA 4418 aerofoil design. The wing features two splitters at different angles of attack. I then simulated the downforce produced by the wing at various speeds using STAR CCM+. </p>
-         </div>
-         <img src = "images/airfoil.png" alt = "Rear Wing">
-      </div>
-      <div class = "flex-item2">
-         <div class = "text-container">
-            <h3>Level Two Rocket</h3>
-            <p>I designed and fabricated a 3 foot long rocket using 3d printed plastic, fiberglass, and cardboard. With a custom avionics system that logged down position, acceleration, and orientation data, it reached an apogee of 1000m using a J425 rocket motor.</p>
-         </div>
-         <img src = "images/20240229_113139.jpg" alt = "Rocket">
+  <!-- ===== Education ===== -->
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>University of California, Los Angeles</h3>
+        <p>B.S. Physics </p>
+        <p>Expected Graduation: December&nbsp;2025</p>
       </div>
     </div>
+  </section>
 
-    <div class ="experience-title">Coding Projects</div>
-    <div class ="flex-container2">
-      <div class = "flex-item2">
-         <div class = "text-container">
-            <h3>Song Detection C++</h3>
-            <p>Using FFTW, I created a song detection program that is similar to Shazam. It generates a hash table of the most intense frequencies throughout a given song and compares that to input data to determine what song it most likely matches.</p>
-         </div>
-         <img src = "images/SongDetection.png" alt = "Song Detection"> 
+  <!-- ===== Experience ===== -->
+  <section id="experience">
+    <h2 class="section-title">Experience</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="images/nasa.jpg" alt="NASA L'SPACE" />
+        <h3>NASA L’SPACE NPWEE Academy</h3>
+        <p>
+          Principal Investigator – Proposed integrating super‑capacitors into
+          satellite propulsion for collision avoidance.
+        </p>
       </div>
-      <div class = "flex-item2">
-         <div class = "text-container">
-            <h3>Audio to MIDI C++</h3>
-            <p>This project was focused on transcibing audio files to MIDI files that could be used in a DAW like FL Studio. To do this I utilized FFTW to construct a spectrogram of the song, logging the most intense frequencies throughout discrete chunks of the song. I then clamped these frequencies to the nearest neighbor frequency according to what key the song was in. Finally I am working on creating a machine learning algorithm that will accuratley detect whether a note is being pressed or unpressed based off of the songs intensity data</p>
-         </div>
-         <img src ="images/AudioToWAV.png" alt = "Audio to MIDI">
-      </div>
-      <div class = "flex-item2">
-         <div class = "text-container">
-            <h3>r/place Bot C#</h3>
-            <p>For r/Place 2023 I created a software that used hundreds of bot accounts to participate in the event as if they were actual users. To interact with the website I used the standard HTTP library included in .NET and I employed proxies to avoid IP bans. The bot software was multithreaded to ensure each worker could function in parrallel to each other.</p>
-         </div>
-         <img src = "images/placeBotPic.png" alt = "Reddit Place Bot Code">
+      <div class="card">
+        <img src="images/Venturi.png" alt="Venturi research" />
+        <h3>Student Researcher, UCR</h3>
+        <p>
+          Designed a Venturi tube achieving a 30 kPa pressure drop for low‑energy
+          water filtration.
+        </p>
       </div>
     </div>
+  </section>
+
+  <!-- ===== Projects ===== -->
+  <section id="projects">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="images/airfoil.png" alt="Rear wing" />
+        <h3>Rear Wing Design</h3>
+        <p>
+          Modeled a NACA 4418 aerofoil and simulated downforce in STAR‑CCM+
+          across speed regimes.
+        </p>
+      </div>
+      <div class="card">
+        <img src="images/20240229_113139.jpg" alt="Rocket" />
+        <h3>Level‑Two Rocket</h3>
+        <p>
+          3 ft rocket with custom avionics reaching 1 km apogee on a J425 motor.
+        </p>
+      </div>
+      <div class="card">
+        <img src="images/SongDetection.png" alt="Song detection code" />
+        <h3>Song Detection (C++)</h3>
+        <p>
+          FFT‑based hashing engine that identifies tracks Shazam‑style.
+        </p>
+      </div>
+      <div class="card">
+        <img src="images/AudioToWAV.png" alt="Audio to MIDI" />
+        <h3>Audio → MIDI (C++)</h3>
+        <p>
+          Transforms audio files into MIDI by mapping dominant frequencies to
+          musical notes.
+        </p>
+      </div>
+      <div class="card">
+        <img src="images/placeBotPic.png" alt="Place bot" />
+        <h3>r/Place Bot (C#)</h3>
+        <p>
+          Multithreaded botnet that placed pixels with proxy rotation, mimicking
+          real users.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>© 2025 Ravi Dhaliwal • Built with 💙 in Los Angeles</p>
+  </footer>
+
+  <!-- ===== Smooth Scroll ===== -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document
+          .querySelector(this.getAttribute('href'))
+          .scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
-
-
-
 </html>
