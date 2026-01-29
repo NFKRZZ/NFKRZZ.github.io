@@ -128,6 +128,12 @@
       margin-bottom: 0.5rem;
     }
 
+    .project-link {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
     /* ——— Footer ——— */
     footer {
       background: #091a37;
@@ -186,29 +192,35 @@
   <section id="experience">
     <h2 class="section-title">Experience</h2>
     <div class="cards">
-      <div class="card">
-        <img src="images/Bs_heatmap_offsets.jpg" alt="DBS Sim" />
-        <h3>Student Researcher, Basic Plasma Science Facility</h3>
-        <p>
-          Simulated doppler backscattering and cross-polarization scattering of mm waves in plasma using COMSOL
-        </p>
-      </div>
-      <div class="card">
-        <img src="images/nasa.jpg" alt="NASA L'SPACE" />
-        <h3>NASA L’SPACE NPWEE Academy</h3>
-        <p>
-          Principal Investigator – Proposed integrating super‑capacitors into
-          satellite propulsion for collision avoidance.
-        </p>
-      </div>
-      <div class="card">
-        <img src="images/Venturi.png" alt="Venturi research" />
-        <h3>Student Researcher, UCR</h3>
-        <p>
-          Designed a Venturi tube achieving a 30 kPa pressure drop for low‑energy
-          water filtration.
-        </p>
-      </div>
+      <a href="plasma-research.html" class="project-link">
+        <div class="card">
+          <img src="images/Bs_heatmap_offsets.jpg" alt="DBS Sim" />
+          <h3>Student Researcher, Basic Plasma Science Facility</h3>
+          <p>
+            Simulated doppler backscattering and cross-polarization scattering of mm waves in plasma using COMSOL
+          </p>
+        </div>
+      </a>
+      <a href="nasa-academy.html" class="project-link">
+        <div class="card">
+          <img src="images/nasa.jpg" alt="NASA L'SPACE" />
+          <h3>NASA L'SPACE NPWEE Academy</h3>
+          <p>
+            Principal Investigator – Proposed integrating super‑capacitors into
+            satellite propulsion for collision avoidance.
+          </p>
+        </div>
+      </a>
+      <a href="venturi-research.html" class="project-link">
+        <div class="card">
+          <img src="images/Venturi.png" alt="Venturi research" />
+          <h3>Student Researcher, UCR</h3>
+          <p>
+            Designed a Venturi tube achieving a 30 kPa pressure drop for low‑energy
+            water filtration.
+          </p>
+        </div>
+      </a>
     </div>
   </section>
 
