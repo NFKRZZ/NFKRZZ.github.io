@@ -6,6 +6,17 @@
   <title>Plasma Science Research | Ravi Dhaliwal</title>
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
   <style>
     :root {
       --bg: #0e2954;
@@ -38,6 +49,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
+      max-width: 1420px;
+      margin: 0 auto;
     }
 
     header h1 {
@@ -158,6 +171,11 @@
       font-size: 0.875rem;
     }
 
+    footer p {
+      max-width: 1420px;
+      margin: 0 auto;
+    }
+
     /* ——— Responsive ——— */
     @media (max-width: 600px) {
       .hero h2 {
@@ -202,6 +220,12 @@
         response of the scattered beam. Also the geometry of the perturbation and how the beam interacts with that perturbation affects the overall power response and the 
         cross section of the back scattered beam. Understanding these effects will give insight into experimentally probing turbulence in tokamaks which then will help with 
         mitigating it.
+      </p>
+      <p>
+        The power response of the scattered beam has an intermediate regime between the Born and saturation regions where the
+        power response is non-linear. In the case of our single-wavenumber fluctuations, that nonlinearity appears at integer
+        divisions of the Bragg-matched wavenumber. Given the finite effects of our beam, this can be observed in a window around
+        these wavenumbers of \(\delta k \approx 2/w\).
       </p>
 
       <h3>Insights</h3>

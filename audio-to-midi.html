@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Audio to MIDI | Ravi Dhaliwal</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0e2954;
+      --accent: #2e8a99;
+      --text-light: #ffffff;
+      --text-muted: #cfd8e3;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--bg);
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    body.lightbox-open {
+      overflow: hidden;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(14, 41, 84, 0.9);
+      backdrop-filter: blur(6px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      max-width: 1420px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      font-size: 1.75rem;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, var(--bg) 0%, #1a3a5c 100%);
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .image-link {
+      display: block;
+      width: min(100vw - 4rem, 1180px);
+      max-width: none;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 0.75rem;
+      cursor: zoom-in;
+    }
+
+    .project-image {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .image-note {
+      margin-bottom: 2rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 0.15rem;
+      background: rgba(5, 12, 24, 0.94);
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+      width: min(99.7vw, 2200px);
+      max-height: calc(100vh - 0.3rem);
+    }
+
+    .lightbox-image {
+      display: block;
+      width: 100%;
+      max-height: calc(100vh - 0.3rem);
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(9, 26, 55, 0.92);
+      color: var(--text-light);
+      font-size: 1.25rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .project-details h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .project-details p {
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .tech-stack {
+      background: #112d5d;
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+
+    .tech-stack h3 {
+      margin-bottom: 1rem;
+    }
+
+    .tech-stack ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .tech-stack li {
+      background: var(--accent);
+      color: var(--bg);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .back-link:hover {
+      color: var(--text-light);
+    }
+
+    footer {
+      background: #091a37;
+      text-align: center;
+      padding: 1rem;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    footer p {
+      max-width: 1420px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 2.25rem;
+      }
+
+      .image-link {
+        width: 100%;
+        margin-left: 0;
+        transform: none;
+      }
+
+      .lightbox {
+        padding: 0.1rem;
+      }
+
+      .lightbox-content {
+        width: 100%;
+        max-height: calc(100vh - 0.2rem);
+      }
+
+      .lightbox-image {
+        max-height: calc(100vh - 0.2rem);
+      }
+
+      .lightbox-close {
+        top: 0.5rem;
+        right: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ravi Dhaliwal</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Audio to MIDI</h2>
+    <p>C++ tool for converting recorded audio into MIDI note data through frequency analysis.</p>
+  </section>
+
+  <section>
+    <a
+      href="images/AudioToWAV_GUI.png"
+      class="image-link"
+      aria-label="Open the Audio to MIDI GUI image in an overlay"
+    >
+      <img src="images/AudioToWAV_GUI.png" alt="Audio to MIDI application GUI" class="project-image" />
+    </a>
+    <p class="image-note">Click the image to enlarge it.</p>
+
+    <div class="project-details">
+      <h3>Overview</h3>
+      <p>
+        This project converts audio recordings into MIDI by identifying the dominant frequencies present in the input signal
+        and mapping them to musical notes. The goal was to build a pipeline that could take an audio file and produce a more
+        structured musical representation that could be edited, analyzed, or reused in other software.
+      </p>
+
+      <h3>Approach</h3>
+      <p>
+        The core of the project is a frequency-analysis workflow written in C++. Audio data is processed frame by frame, the
+        strongest spectral components are identified, and those frequencies are associated with note values in the MIDI output.
+        This makes it possible to translate pitch information from an audio waveform into a symbolic note sequence.
+      </p>
+
+      <h3>Interface</h3>
+      <p>
+        The GUI version shown here made the tool easier to test and iterate on by providing a more direct way to load audio,
+        inspect the conversion process, and review the output. It turned the project from a command-line prototype into something
+        more usable for repeated experiments.
+      </p>
+    </div>
+
+    <div class="tech-stack">
+      <h3>Technologies & Skills</h3>
+      <ul>
+        <li>C++</li>
+        <li>Digital Signal Processing</li>
+        <li>Frequency Analysis</li>
+        <li>MIDI</li>
+        <li>GUI Development</li>
+      </ul>
+    </div>
+
+    <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Ravi Dhaliwal</p>
+  </footer>
+
+  <div class="lightbox" id="image-lightbox" aria-hidden="true">
+    <div class="lightbox-content">
+      <button class="lightbox-close" type="button" aria-label="Close enlarged image">&times;</button>
+      <img src="images/AudioToWAV_GUI.png" alt="Audio to MIDI application GUI enlarged" class="lightbox-image" />
+    </div>
+  </div>
+
+  <script>
+    const imageLink = document.querySelector(".image-link");
+    const lightbox = document.getElementById("image-lightbox");
+    const closeButton = lightbox.querySelector(".lightbox-close");
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("lightbox-open");
+    }
+
+    imageLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("lightbox-open");
+    });
+
+    closeButton.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+</html>

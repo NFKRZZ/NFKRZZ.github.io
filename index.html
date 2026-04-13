@@ -27,7 +27,7 @@
       line-height: 1.6;
     }
 
-    /* ——— Header / Navbar ——— */
+    /* Header / Navbar */
     header {
       position: sticky;
       top: 0;
@@ -38,6 +38,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
+      max-width: 1420px;
+      margin: 0 auto;
     }
 
     header h1 {
@@ -63,7 +65,7 @@
       color: var(--accent);
     }
 
-    /* ——— Hero ——— */
+    /* Hero */
     .hero {
       min-height: 70vh;
       display: flex;
@@ -85,9 +87,11 @@
       font-size: 1.125rem;
     }
 
-    /* ——— Sections ——— */
+    /* Sections */
     section {
       padding: 4rem 2rem;
+      max-width: 1420px;
+      margin: 0 auto;
     }
 
     .section-title {
@@ -97,7 +101,7 @@
       color: var(--accent);
     }
 
-    /* ——— Cards Grid ——— */
+    /* Cards Grid */
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -134,7 +138,7 @@
       cursor: pointer;
     }
 
-    /* ——— Footer ——— */
+    /* Footer */
     footer {
       background: #091a37;
       text-align: center;
@@ -143,7 +147,12 @@
       font-size: 0.875rem;
     }
 
-    /* ——— Responsive ——— */
+    footer p {
+      max-width: 1420px;
+      margin: 0 auto;
+    }
+
+    /* Responsive */
     @media (max-width: 600px) {
       .hero h2 {
         font-size: 2.25rem;
@@ -152,7 +161,6 @@
   </style>
 </head>
 <body>
-  <!-- ===== Header / Navbar ===== -->
   <header>
     <h1>Ravi Dhaliwal</h1>
     <nav>
@@ -166,29 +174,26 @@
     </nav>
   </header>
 
-  <!-- ===== Hero Section ===== -->
   <section class="hero" id="about">
-    <h2>Hi, I'm Ravi </h2>
+    <h2>Hi, I'm Ravi</h2>
     <p>
-      I'm a physics student at UCLA with a passion for plasma physics and fusion. I am also interested in engineering‑oriented projects —
-      from software that turns audio into MIDI to 3D‑printed rockets. I’m driven by a
-      curiosity of yet unknown phenomena and the thrill of building things that work.
+      I'm a physics student at UCLA with a passion for plasma physics and fusion. I am also interested in
+      engineering-oriented projects, from software that turns audio into MIDI to 3D-printed rockets. I'm driven by a
+      curiosity for yet unknown phenomena and the thrill of building things that work.
     </p>
   </section>
 
-  <!-- ===== Education ===== -->
   <section id="education">
     <h2 class="section-title">Education</h2>
     <div class="cards">
       <div class="card">
         <h3>University of California, Los Angeles</h3>
-        <p>B.S. Physics </p>
-        <p>December&nbsp;2025</p>
+        <p>B.S. Physics</p>
+        <p>December 2025</p>
       </div>
     </div>
   </section>
 
-  <!-- ===== Experience ===== -->
   <section id="experience">
     <h2 class="section-title">Experience</h2>
     <div class="cards">
@@ -197,7 +202,7 @@
           <img src="images/Bs_heatmap_offsets.jpg" alt="DBS Sim" />
           <h3>Student Researcher, Basic Plasma Science Facility</h3>
           <p>
-            Simulated doppler backscattering and cross-polarization scattering of mm waves in plasma using COMSOL
+            Simulated Doppler backscattering and cross-polarization scattering of mm waves in plasma using COMSOL
           </p>
         </div>
       </a>
@@ -206,8 +211,7 @@
           <img src="images/nasa.jpg" alt="NASA L'SPACE" />
           <h3>NASA L'SPACE NPWEE Academy</h3>
           <p>
-            Principal Investigator – Proposed integrating super‑capacitors into
-            satellite propulsion for collision avoidance.
+            Principal Investigator. Proposed integrating super-capacitors into satellite propulsion for collision avoidance.
           </p>
         </div>
       </a>
@@ -216,15 +220,13 @@
           <img src="images/Venturi.png" alt="Venturi research" />
           <h3>Student Researcher, UCR</h3>
           <p>
-            Designed a Venturi tube achieving a 30 kPa pressure drop for low‑energy
-            water filtration.
+            Designed a Venturi tube achieving a 30 kPa pressure drop for low-energy water filtration.
           </p>
         </div>
       </a>
     </div>
   </section>
 
-  <!-- ===== Projects ===== -->
   <section id="projects">
     <h2 class="section-title">Featured Projects</h2>
     <div class="cards">
@@ -232,56 +234,56 @@
         <img src="images/airfoil.png" alt="Rear wing" />
         <h3>Rear Wing Design</h3>
         <p>
-          Modeled a NACA 4418 aerofoil and simulated downforce in STAR‑CCM+
-          across speed regimes.
+          Modeled a NACA 4418 aerofoil and simulated downforce in STAR-CCM+ across speed regimes.
         </p>
       </div>
       <div class="card">
         <img src="images/20240229_113139.jpg" alt="Rocket" />
-        <h3>Level‑Two Rocket</h3>
+        <h3>Level-Two Rocket</h3>
         <p>
-          3 ft rocket with custom avionics reaching 1 km apogee on a J425 motor.
+          3 ft rocket with custom avionics reaching 1500 m apogee on a J425 motor.
         </p>
       </div>
       <div class="card">
         <img src="images/SongDetection.png" alt="Song detection code" />
         <h3>Song Detection (C++)</h3>
         <p>
-          FFT‑based hashing engine that identifies tracks Shazam‑style.
+          FFT-based hashing engine that identifies tracks Shazam-style.
         </p>
       </div>
-      <div class="card">
-        <img src="images/AudioToWAV.png" alt="Audio to MIDI" />
-        <h3>Audio → MIDI (C++)</h3>
-        <p>
-          Transforms audio files into MIDI by mapping dominant frequencies to
-          musical notes.
-        </p>
-      </div>
-      <div class="card">
-        <img src="images/placeBotPic.png" alt="Place bot" />
-        <h3>r/Place Bot (C#)</h3>
-        <p>
-          Multithreaded botnet that placed pixels with proxy rotation, mimicking
-          real users.
-        </p>
-      </div>
+      <a href="audio-to-midi.html" class="project-link">
+        <div class="card">
+          <img src="images/AudioToWAV.png" alt="Audio to MIDI" />
+          <h3>Audio to MIDI (C++)</h3>
+          <p>
+            Transforms audio files into MIDI by mapping dominant frequencies to
+            musical notes.
+          </p>
+        </div>
+      </a>
+      <a href="projects.html" class="project-link">
+        <div class="card">
+          <div style="display:flex;align-items:center;justify-content:center;height:160px;background:#0b2340;border-radius:8px;margin-bottom:1rem;color:var(--text-muted);">
+            <span style="font-size:3rem;color:var(--accent);">&#128193;</span>
+          </div>
+          <h3>More Projects</h3>
+          <p>Click to view the full project gallery and additional work.</p>
+        </div>
+      </a>
     </div>
   </section>
 
-  <!-- ===== Footer ===== -->
   <footer>
-    <p>© 2025 Ravi Dhaliwal • Built with 💙 in Los Angeles</p>
+    <p>&copy; 2025 Ravi Dhaliwal &bull; Built in Los Angeles</p>
   </footer>
 
-  <!-- ===== Smooth Scroll ===== -->
   <script>
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener('click', function (e) {
+      anchor.addEventListener("click", function (e) {
         e.preventDefault();
         document
-          .querySelector(this.getAttribute('href'))
-          .scrollIntoView({ behavior: 'smooth' });
+          .querySelector(this.getAttribute("href"))
+          .scrollIntoView({ behavior: "smooth" });
       });
     });
   </script>
